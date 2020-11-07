@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bombsweeper Game</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link href="question4.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container-fluid padding">
+            <h2 class="lead text-center">Welcome to Bombsweeper Game</h2>
+            <p class="lead text-center">
+                Instructions:
+                <ul>
+                    <li>1).Find then hidden bomb inside the cell.</li>
+                    <li>2).You can attempt up to 5 times to find the hidden bomb.</li>
+                    <li>3).Click on any grid to find the hidden bomb.</li>
+                </ul>
+            </p>
+            <button onclick="reload()">Play Again</button>
+            <h3 id="NumberAttempts">Attempt</h3>
+            <p id="won" class="lead padding"></p>
+            <p id="lose" class="lead padding"></p>
+            <p id="found" class="lead padding"></p>
+            <table class="table">
+                <tr>
+                    <td onclick="btn(1)"></td>
+                    <td onclick="btn(2)"></td>
+                    <td onclick="btn(3)"></td>
+                </tr>
+                <tr>
+                    <td onclick="btn(4)"></td>
+                    <td onclick="btn(5)"></td>
+                    <td onclick="btn(6)"></td>
+                </tr>
+                <tr>
+                    <td onclick="btn(7)"></td>
+                    <td onclick="btn(8)"></td>
+                    <td onclick="btn(9)"></td>
+                </tr>
+            </table>
+        </div>
+        <script src="question4.js"></script>
+    </body>
+</html>

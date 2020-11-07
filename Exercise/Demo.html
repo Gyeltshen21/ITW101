@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bombsweeper Game</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <style>
+            *{
+                padding:0px;
+                margin:0;
+                text-align:center;
+                align-items:center;
+            }
+            ul{
+                list-style:none;
+            }
+            .table{
+                width:21em;
+                height:21em;
+                border:solid medium;
+                margin-left:30em;
+            }
+            tr{
+                border:solid medium;
+                text-align:center;
+            }
+            td{
+                border:solid black;
+                width:7em;
+                height:7em;
+            }
+            p{
+                width:100%;
+                height:100%;
+            }
+            img{
+                width:2em;
+                height:2em;
+                text-align:center;
+            }
+            #won{
+                color:green;
+            }
+            #lose{
+                color:red;
+            }
+            #found{
+                color:yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid padding">
+            <h2 class="lead text-center">Welcome to Bombsweeper Game</h2>
+            <p class="lead text-center">
+                Instructions:
+                <ul>
+                    <li>1).Find then hidden bomb inside the cell.</li>
+                    <li>2).You can attempt up to 5 times to find the hidden bomb.</li>
+                    <li>3).Click on any grid to find the hidden bomb.</li>
+                </ul>
+            </p>
+            <button onclick="reload()">Play Again</button>
+            <h3 id="NumberAttempts">Attempt</h3>
+            <p id="won" class="lead padding"></p>
+            <p id="lose" class="lead padding"></p>
+            <p id="found" class="lead padding"></p>
+            <table class="table">
+                <tr>
+                    <td onclick="btn(1)"></td>
+                    <td onclick="btn(2)"></td>
+                    <td onclick="btn(3)"></td>
+                </tr>
+                <tr>
+                    <td onclick="btn(4)"></td>
+                    <td onclick="btn(5)"></td>
+                    <td onclick="btn(6)"></td>
+                </tr>
+                <tr>
+                    <td onclick="btn(7)"></td>
+                    <td onclick="btn(8)"></td>
+                    <td onclick="btn(9)"></td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            var NumberAttempts=5;
+            //Generating random number between 1 to 9
+            var num=Math.floor(Math.random()*9)+1;
+
+            //Refreshing the Document to start new game
+            function reload(){
+                location.reload();
+            }
+
+            //conditions for game
+            function btn(y){
+                //Users False click condition
+                if(NumberAttempts==1){
+                    document.getElementById("lose").innerHTML="You lost the game";
+                    document.getElementById("found").innerHTML="Bomb is at random number: "+num+' <img src="bomb.gif">';
+                }
+                //Warning to Users
+                else if(NumberAttempts==3){
+                    if(y==num){
+                        document.getElementById(y).innerHTML='<img src="bomb.gif">';
+                        document.getElementById("won").innerHTML="You Won the Game";
+                        document.getElementById("found").innerHTML="Bomb is at position: "+num+' <img src="bomb.gif">';
+                    }
+                    else{
+                        NumberAttempts=NumberAttempts-1;
+                        alert("You are left with 2 more attempts");
+                        document.getElementById('NumberAttempts').innerHTML="You have 2 more";
+                    }
+                }
+                //Users True click Condition
+                else{
+                    //Conditions where bomb is placed with random numbers
+                    if(y==num){
+                        document.getElementById(y).innerHTML='<img src="bomb.gif">';
+                        document.getElementById("won").innerHTML="You Won the Game";
+                        document.getElementById("found").innerHTML="Bomb is at position: "+num+' <img src="bomb.gif">';
+                    }
+                    else{
+                        NumberAttempts=NumberAttempts-1;
+                        document.getElementById('NumberAttempts').innerHTML="You have "+NumberAttempts+" more";
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

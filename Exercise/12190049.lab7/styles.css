@@ -1,0 +1,12 @@
+.hide-me {
+	display: none;
+	visibility: none;
+}
+.btn{
+	padding: 20px 20px;
+}
+.dgee{
+	position: absolute;
+	left:20%;
+	top: 20px;
+}
